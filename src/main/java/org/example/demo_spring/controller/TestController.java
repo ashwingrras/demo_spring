@@ -60,7 +60,7 @@ public class TestController {
     public String testRequestBodyPost(@RequestBody Student student)
     {
         System.out.println("student name "+student.getName());
-        return "hello, this is spring boot, testFetch, student name = "+student.getName();
+        return "hello, this is spring boot, testFetch, student name = "+student.getName()+", city "+student.getCity();
     }
 
     @GetMapping("/testreturnobject")
@@ -68,7 +68,6 @@ public class TestController {
     public Student testReturnObject()
     {
         Student student = new Student();
-        student.setName("ashish");
         return student;
     }
 
@@ -76,11 +75,7 @@ public class TestController {
     public ResponseEntity<Student> testResponseEntity()
     {
         Student student = new Student();
-        student.setName("ashish");
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(student);
     }
-
-
-
 
 }
